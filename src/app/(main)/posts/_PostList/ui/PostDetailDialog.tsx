@@ -25,7 +25,7 @@ export function PostDetailDialog({ postId }: PostDetailDialogProps) {
   const pathname = usePathname();
   const { push, clear } = useDialogStack();
   const { data: post, isLoading } = usePost(postId, false); // 일반 Query 모드로 변경 (Suspense 제거)
-  const { handleDelete, deletingId, isDeleting } = usePostList();
+  const { handleDelete, isDeleting } = usePostList();
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
   // 현재 경로가 /posts/[id]가 아니면 다이얼로그를 표시하지 않음
@@ -54,14 +54,6 @@ export function PostDetailDialog({ postId }: PostDetailDialogProps) {
       };
     }
   }, [deleteDialogOpen, push]);
-
-  // 삭제 완료 시 Dialog 닫기
-  useEffect(() => {
-    if (post && deletingId === post.id && !isDeleting) {
-      setDeleteDialogOpen(false);
-      handleClose();
-    }
-  }, [post, deletingId, isDeleting, handleClose]);
 
   if (!isDialogOpen) {
     return null;
@@ -94,8 +86,13 @@ export function PostDetailDialog({ postId }: PostDetailDialogProps) {
   const handleConfirmDelete = async () => {
     try {
       await handleDelete(post.id);
+      // 삭제 성공 시 다이얼로그 닫기
+      setDeleteDialogOpen(false);
+      handleClose();
     } catch (error) {
       console.error('삭제 실패:', error);
+      // 에러 발생 시 삭제 확인 다이얼로그만 닫기
+      setDeleteDialogOpen(false);
     }
   };
 
