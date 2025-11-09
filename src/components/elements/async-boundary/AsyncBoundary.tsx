@@ -2,10 +2,10 @@
 
 import { Suspense, ReactNode, ErrorInfo } from 'react';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
-import { LoadingSpinner } from '@/components/elements/loading-spinner';
-import { ErrorDisplay } from '@/components/elements/error-display';
-import { Button } from '@/components/atoms/button';
-import { TEXTS } from '@/lib/config';
+import { LoadingSpinner } from '@/components/elements/LoadingSpinner';
+import { ErrorDisplay } from '@/components/elements/error/ErrorDisplay';
+import { Button } from '@/components/atoms/Button';
+import { TEXTS } from '@/lib/constants/texts';
 
 interface AsyncBoundaryProps {
   children: ReactNode;

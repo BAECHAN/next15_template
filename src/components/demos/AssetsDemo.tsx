@@ -1,5 +1,11 @@
 import Image from 'next/image';
-import { HeartIcon, StarIcon, CheckIcon, UserIcon, NoImage, LogoPlaceholder } from '@/lib/assets';
+
+const HeartIcon = '/assets/icons/heart.svg';
+const StarIcon = '/assets/icons/star.svg';
+const CheckIcon = '/assets/icons/check.svg';
+const UserIcon = '/assets/icons/user.svg';
+const NoImage = '/assets/images/no-image.svg';
+const LogoPlaceholder = '/assets/images/logo-placeholder.svg';
 
 export function AssetsDemo() {
   return (

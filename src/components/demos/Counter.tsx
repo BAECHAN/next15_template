@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@/components/atoms/button';
+import { Button } from '@/components/atoms/Button';
 import { useCounter } from '@/lib/hooks/useCounter';
-import { TEXTS } from '@/lib/config';
+import { TEXTS } from '@/lib/constants/texts';
 import { cn } from '@/lib/utils';
 
 export function Counter() {

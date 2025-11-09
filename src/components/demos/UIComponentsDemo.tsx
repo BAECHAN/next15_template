@@ -1,10 +1,11 @@
-import { Button } from '@/components/atoms/button';
-import { Input, NumberInput } from '@/components/atoms/input';
-import { Label } from '@/components/atoms/label';
-import { Textarea } from '@/components/atoms/textarea';
-import { FormGroup } from '@/components/elements/form-group';
-import { Section } from '@/components/elements/section';
-import { TEXTS } from '@/lib/config';
+import { Button } from '@/components/atoms/Button';
+import { Input } from '@/components/atoms/Input/ui/Input';
+import { InputNumber } from '@/components/atoms/Input/ui/InputNumber';
+import { Label } from '@/components/atoms/Label';
+import { Textarea } from '@/components/atoms/Textarea';
+import { FormGroup } from '@/components/elements/FormGroup';
+import { Section } from '@/components/elements/Section';
+import { TEXTS } from '@/lib/constants/texts';
 
 export function UIComponentsDemo() {
   return (
@@ -46,7 +47,7 @@ export function UIComponentsDemo() {
             <h3 className="mb-4 text-lg font-semibold text-gray-900">NumberInput 컴포넌트</h3>
             <FormGroup>
               <Label htmlFor="age">나이 (정수만, 0-150)</Label>
-              <NumberInput
+              <InputNumber
                 id="age"
                 placeholder="나이를 입력하세요"
                 min={0}
@@ -57,7 +58,7 @@ export function UIComponentsDemo() {
             </FormGroup>
             <FormGroup>
               <Label htmlFor="price">가격 (소수점 허용, 최소 0)</Label>
-              <NumberInput
+              <InputNumber
                 id="price"
                 placeholder="0.00"
                 min={0}
@@ -67,7 +68,7 @@ export function UIComponentsDemo() {
             </FormGroup>
             <FormGroup>
               <Label htmlFor="temperature">온도 (음수 및 소수점 허용)</Label>
-              <NumberInput
+              <InputNumber
                 id="temperature"
                 placeholder="-10.5"
                 allowDecimals={true}
