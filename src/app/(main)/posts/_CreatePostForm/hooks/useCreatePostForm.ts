@@ -37,8 +37,13 @@ export function useCreatePostForm() {
       router.push('/posts');
     } catch (error) {
       console.error('게시글 작성 실패:', error);
-      // 에러는 상위로 전파하여 ErrorBoundary에서 처리
-      throw error;
+      // 폼에 에러 설정
+      const errorMessage =
+        error instanceof Error ? error.message : '게시글 작성에 실패했습니다. 다시 시도해주세요.';
+      form.setError('root', {
+        type: 'manual',
+        message: errorMessage,
+      });
     }
   });
 

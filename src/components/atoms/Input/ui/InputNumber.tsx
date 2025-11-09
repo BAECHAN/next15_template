@@ -7,6 +7,7 @@ import { useInputNumber } from '@/components/atoms/Input/hooks/useInputNumber';
 export interface NumberInputProps extends Omit<InputProps, 'type' | 'onChange' | 'value'> {
   value?: number | string;
   onChange?: (value: number | '') => void;
+  defaultValue?: number | string;
   min?: number;
   max?: number;
   step?: number;
@@ -18,8 +19,9 @@ const InputNumber = React.forwardRef<HTMLInputElement, NumberInputProps>(
   (
     {
       className,
-      value,
+      value: controlledValue,
       onChange,
+      defaultValue,
       min,
       max,
       step = 1,
@@ -30,24 +32,43 @@ const InputNumber = React.forwardRef<HTMLInputElement, NumberInputProps>(
     },
     ref
   ) => {
+    // Controlled vs Uncontrolled
+    const isControlled = controlledValue !== undefined;
+    const [internalValue, setInternalValue] = React.useState<number | string>(defaultValue ?? '');
+
+    const currentValue = isControlled ? controlledValue : internalValue;
+
+    const handleChange = React.useCallback(
+      (newValue: number | '') => {
+        if (!isControlled) {
+          setInternalValue(newValue);
+        }
+        onChange?.(newValue);
+      },
+      [isControlled, onChange]
+    );
+
     const { handleChange: hookHandleChange, handleKeyDown: hookHandleKeyDown } = useInputNumber({
       min,
       max,
       allowDecimals,
       allowNegative,
-      onChange,
+      onChange: handleChange,
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       hookHandleChange(e);
     };
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       hookHandleKeyDown(e);
       onKeyDown?.(e);
     };
 
-    const displayValue = value === '' || value === undefined ? '' : String(value);
+    const displayValue =
+      currentValue === '' || currentValue === undefined || currentValue === null
+        ? ''
+        : String(currentValue);
 
     return (
       <Input
@@ -55,8 +76,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, NumberInputProps>(
         type="text"
         inputMode="numeric"
         value={displayValue}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
+        onChange={handleInputChange}
+        onKeyDown={handleInputKeyDown}
         className={className}
         {...props}
       />

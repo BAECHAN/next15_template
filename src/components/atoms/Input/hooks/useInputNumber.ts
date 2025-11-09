@@ -39,15 +39,12 @@ export function useInputNumber({
   allowNegative = false,
   onChange,
 }: UseInputNumberOptions = {}) {
-  const [value, setValue] = useState<number | string>(initialValue);
-
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       const inputValue = e.target.value;
 
       // 빈 값 허용
       if (inputValue === '') {
-        setValue('');
         onChange?.('');
         return;
       }
@@ -86,7 +83,6 @@ export function useInputNumber({
         }
       }
 
-      setValue(numValue);
       onChange?.(numValue);
     },
     [min, max, allowDecimals, allowNegative, onChange]
@@ -142,8 +138,6 @@ export function useInputNumber({
   );
 
   return {
-    value,
-    setValue,
     handleChange,
     handleKeyDown,
   };

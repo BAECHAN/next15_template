@@ -63,9 +63,9 @@ export function DateFormatExample() {
   ];
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8 mt-4">
-      <div className="p-6 border border-gray-300 rounded-lg bg-white">
-        <h3 className="mb-4 text-xl font-semibold text-gray-900 border-b-2 border-gray-200 pb-2">
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 mt-4">
+      <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 shadow-md hover:shadow-lg transition-shadow duration-200">
+        <h3 className="mb-4 text-xl font-semibold text-gray-900 border-b-2 border-gray-300 pb-2">
           기본 포맷 예제
         </h3>
         {examples.map((example) => (
@@ -80,8 +80,8 @@ export function DateFormatExample() {
         ))}
       </div>
 
-      <div className="p-6 border border-gray-300 rounded-lg bg-white">
-        <h3 className="mb-4 text-xl font-semibold text-gray-900 border-b-2 border-gray-200 pb-2">
+      <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 shadow-md hover:shadow-lg transition-shadow duration-200">
+        <h3 className="mb-4 text-xl font-semibold text-gray-900 border-b-2 border-gray-300 pb-2">
           상대 시간 예제
         </h3>
         {relativeExamples.map((example) => (
@@ -94,8 +94,8 @@ export function DateFormatExample() {
         ))}
       </div>
 
-      <div className="p-6 border border-gray-300 rounded-lg bg-white">
-        <h3 className="mb-4 text-xl font-semibold text-gray-900 border-b-2 border-gray-200 pb-2">
+      <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 shadow-md hover:shadow-lg transition-shadow duration-200">
+        <h3 className="mb-4 text-xl font-semibold text-gray-900 border-b-2 border-gray-300 pb-2">
           게시판 스타일 예제
         </h3>
         {boardExamples.map((example) => (
@@ -108,8 +108,8 @@ export function DateFormatExample() {
         ))}
       </div>
 
-      <div className="p-6 border border-gray-300 rounded-lg bg-white">
-        <h3 className="mb-4 text-xl font-semibold text-gray-900 border-b-2 border-gray-200 pb-2">
+      <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 shadow-md hover:shadow-lg transition-shadow duration-200">
+        <h3 className="mb-4 text-xl font-semibold text-gray-900 border-b-2 border-gray-300 pb-2">
           날짜 범위 예제
         </h3>
         <div className="mb-3">

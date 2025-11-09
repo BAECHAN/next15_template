@@ -11,10 +11,12 @@ export function Counter() {
   return (
     <div
       className={cn(
-        'flex flex-col items-center gap-6 p-8 bg-white rounded-lg border border-gray-200'
+        'flex flex-col items-center gap-6 p-8 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 rounded-xl border border-gray-200/50 shadow-md'
       )}
     >
-      <div className="text-5xl font-bold text-blue-600">{count}</div>
+      <div className="text-6xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+        {count}
+      </div>
       <div className="flex gap-3">
         <Button onClick={decrement} variant="secondary">
           -1

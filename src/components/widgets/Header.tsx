@@ -6,20 +6,20 @@ import { RainbowBlinkingText } from '@/components/elements/RainbowBlinkingText';
 
 export function Header() {
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+    <header className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-gray-200/50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
             <Link
               href="/"
-              className="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors"
+              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
             >
               React Template
             </Link>
             <nav className="hidden md:flex items-center gap-8">
               <Link
                 href="/"
-                className="text-gray-700 font-medium hover:text-blue-600 transition-colors"
+                className="text-gray-700 font-medium hover:text-blue-600 transition-colors duration-200"
               >
                 {TEXTS.buttons.home}
               </Link>
@@ -31,7 +31,7 @@ export function Header() {
           </div>
 
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 px-2 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-red-50 to-orange-50 border border-red-200/50 text-red-700 rounded-full text-sm font-medium shadow-sm">
               <svg
                 width="16"
                 height="16"

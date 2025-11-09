@@ -9,11 +9,16 @@ import { TEXTS } from '@/lib/constants/texts';
 
 export function UIComponentsDemo() {
   return (
-    <section className="my-8 p-8 bg-white rounded-lg border border-gray-200">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">공통 UI 컴포넌트 예제</h2>
+    <section className="my-8 p-8 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200/50 shadow-lg">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-1 h-8 bg-gradient-to-b from-indigo-500 to-indigo-600 rounded-full"></div>
+        <h2 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+          공통 UI 컴포넌트 예제
+        </h2>
+      </div>
       <div className="w-full">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
-          <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
+          <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 shadow-md hover:shadow-lg transition-shadow duration-200">
             <h3 className="mb-4 text-lg font-semibold text-gray-900">Button 컴포넌트</h3>
             <div className="flex gap-2 flex-wrap">
               <Button>Primary</Button>
@@ -23,7 +28,7 @@ export function UIComponentsDemo() {
             </div>
           </div>
 
-          <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 shadow-md hover:shadow-lg transition-shadow duration-200">
             <h3 className="mb-4 text-lg font-semibold text-gray-900">Input 컴포넌트</h3>
             <FormGroup>
               <Label htmlFor="email">{TEXTS.labels.email}</Label>
@@ -35,7 +40,7 @@ export function UIComponentsDemo() {
             </FormGroup>
           </div>
 
-          <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 shadow-md hover:shadow-lg transition-shadow duration-200">
             <h3 className="mb-4 text-lg font-semibold text-gray-900">Textarea 컴포넌트</h3>
             <FormGroup>
               <Label htmlFor="message">{TEXTS.labels.message}</Label>
@@ -43,8 +48,8 @@ export function UIComponentsDemo() {
             </FormGroup>
           </div>
 
-          <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
-            <h3 className="mb-4 text-lg font-semibold text-gray-900">NumberInput 컴포넌트</h3>
+          <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 shadow-md hover:shadow-lg transition-shadow duration-200">
+            <h3 className="mb-4 text-lg font-semibold text-gray-900">InputNumber 컴포넌트</h3>
             <FormGroup>
               <Label htmlFor="age">나이 (정수만, 0-150)</Label>
               <InputNumber
@@ -77,7 +82,7 @@ export function UIComponentsDemo() {
             </FormGroup>
           </div>
 
-          <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl border border-gray-200/50 shadow-md hover:shadow-lg transition-shadow duration-200">
             <h3 className="mb-4 text-lg font-semibold text-gray-900">Section 컴포넌트</h3>
             <Section>
               <p>이것은 Section 컴포넌트입니다. 콘텐츠를 그룹화하는데 사용됩니다.</p>
