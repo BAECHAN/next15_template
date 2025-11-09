@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from '@/components/atoms/Button';
+import { Button, type ButtonProps } from '@/components/atoms/button/Button';
 import { ChevronLeft } from 'lucide-react';
 
 interface BackButtonProps extends Omit<ButtonProps, 'children' | 'variant' | 'size'> {

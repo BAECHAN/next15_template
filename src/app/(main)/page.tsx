@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Button } from '@/components/atoms/Button';
+import { Button } from '@/components/atoms/button/Button';
 import { TEXTS } from '@/lib/constants/texts';
 import { DateFormatDemo } from '@/components/demos/DateFormatDemo';
 import { AssetsDemo } from '@/components/demos/AssetsDemo';

@@ -2,12 +2,12 @@
 
 import { useRouter } from 'next/navigation';
 import { Controller } from 'react-hook-form';
-import { Button } from '@/components/atoms/Button';
-import { Input } from '@/components/atoms/Input/ui/Input';
-import { InputNumber } from '@/components/atoms/Input/ui/InputNumber';
-import { Textarea } from '@/components/atoms/Textarea';
-import { Label } from '@/components/atoms/Label';
-import { FormGroup } from '@/components/elements/FormGroup';
+import { Button } from '@/components/atoms/button/Button';
+import { Input } from '@/components/atoms/input/Input';
+import { InputNumber } from '@/components/atoms/input/input-number/ui/InputNumber';
+import { Textarea } from '@/components/atoms/textarea/Textarea';
+import { Label } from '@/components/atoms/label/Label';
+import { FormGroup } from '@/components/elements/form-group/FormGroup';
 import { useCreatePostForm } from '@/app/(main)/posts/_CreatePostForm/hooks/useCreatePostForm';
 import { TEXTS } from '@/lib/constants/texts';
 

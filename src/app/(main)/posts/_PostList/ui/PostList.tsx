@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/atoms/Button';
+import { Button } from '@/components/atoms/button/Button';
 import { usePosts } from '@/app/(main)/posts/_common/posts.queries';
 import { usePostList } from '@/app/(main)/posts/_PostList/hooks/usePostList';
 import { TEXTS } from '@/lib/constants/texts';

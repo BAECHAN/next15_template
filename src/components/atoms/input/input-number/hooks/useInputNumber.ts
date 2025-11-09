@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, ChangeEvent } from 'react';
+import { useCallback, ChangeEvent } from 'react';
 
 interface UseInputNumberOptions {
   initialValue?: number | string;

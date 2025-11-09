@@ -1,10 +1,10 @@
-import { Button } from '@/components/atoms/Button';
-import { Input } from '@/components/atoms/Input/ui/Input';
-import { InputNumber } from '@/components/atoms/Input/ui/InputNumber';
-import { Label } from '@/components/atoms/Label';
-import { Textarea } from '@/components/atoms/Textarea';
-import { FormGroup } from '@/components/elements/FormGroup';
-import { Section } from '@/components/elements/Section';
+import { Button } from '@/components/atoms/button/Button';
+import { Input } from '@/components/atoms/input/Input';
+import { InputNumber } from '@/components/atoms/input/input-number/ui/InputNumber';
+import { Label } from '@/components/atoms/label/Label';
+import { Textarea } from '@/components/atoms/textarea/Textarea';
+import { FormGroup } from '@/components/elements/form-group/FormGroup';
+import { Section } from '@/components/elements/section/Section';
 import { TEXTS } from '@/lib/constants/texts';
 
 export function UIComponentsDemo() {

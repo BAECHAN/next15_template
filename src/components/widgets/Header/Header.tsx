@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { TEXTS } from '@/lib/constants/texts';
-import { RainbowBlinkingText } from '@/components/elements/RainbowBlinkingText';
+import { RainbowBlinkingText } from '@/components/elements/rainbow-blinking-text/RainbowBlinkingText';
 
 export function Header() {
   return (

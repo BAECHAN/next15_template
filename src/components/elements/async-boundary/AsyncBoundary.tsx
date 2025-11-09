@@ -2,9 +2,9 @@
 
 import { Suspense, ReactNode, ErrorInfo } from 'react';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
-import { LoadingSpinner } from '@/components/elements/LoadingSpinner';
-import { ErrorDisplay } from '@/components/elements/error/ErrorDisplay';
-import { Button } from '@/components/atoms/Button';
+import { LoadingSpinner } from '@/components/elements/loading-spinner/LoadingSpinner';
+import { ErrorDisplay } from '@/components/elements/error/error-display/ErrorDisplay';
+import { Button } from '@/components/atoms/button/Button';
 import { TEXTS } from '@/lib/constants/texts';
 
 interface AsyncBoundaryProps {

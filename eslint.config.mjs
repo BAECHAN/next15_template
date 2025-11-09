@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from 'eslint-plugin-storybook';
+
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
@@ -82,8 +85,7 @@ export default [
         },
       ],
     },
-  },
-  // 스타일 파일에 대한 특별 규칙
+  }, // 스타일 파일에 대한 특별 규칙
   {
     files: ['**/*.styles.ts', '**/*.styles.tsx'],
     languageOptions: {
@@ -102,8 +104,7 @@ export default [
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
     },
-  },
-  // 파일 명명 규칙 (unicorn/filename-case)
+  }, // 파일 명명 규칙 (unicorn/filename-case)
   // 비-ASCII 문자 검사 (한글 등) - 커스텀 규칙
   {
     files: ['src/**/*.{ts,tsx}'],
@@ -148,8 +149,7 @@ export default [
     rules: {
       'custom-filename/no-non-ascii-filename': 'error',
     },
-  },
-  // 컴포넌트 파일: PascalCase
+  }, // 컴포넌트 파일: PascalCase
   {
     files: ['src/**/*.tsx'],
     ignores: ['src/main.tsx', 'src/App.tsx', '**/index.tsx', '**/FSD*.tsx', '**/UI*.tsx'],
@@ -159,8 +159,7 @@ export default [
     rules: {
       'unicorn/filename-case': ['error', { case: 'pascalCase' }],
     },
-  },
-  // 스타일 파일: PascalCase.styles.ts
+  }, // 스타일 파일: PascalCase.styles.ts
   {
     files: ['src/**/*.styles.ts'],
     ignores: ['**/FSD*.styles.ts', '**/UI*.styles.ts'],
@@ -170,8 +169,7 @@ export default [
     rules: {
       'unicorn/filename-case': ['error', { case: 'pascalCase' }],
     },
-  },
-  // 유틸리티 파일: kebab-case
+  }, // 유틸리티 파일: kebab-case
   {
     files: ['src/**/utils/**/*.ts'],
     ignores: ['**/index.ts'],
@@ -181,8 +179,7 @@ export default [
     rules: {
       'unicorn/filename-case': ['error', { case: 'kebabCase' }],
     },
-  },
-  // API 파일: kebab-case.api.ts
+  }, // API 파일: kebab-case.api.ts
   {
     files: ['src/**/*.api.ts'],
     plugins: {
@@ -191,8 +188,7 @@ export default [
     rules: {
       'unicorn/filename-case': ['error', { case: 'kebabCase' }],
     },
-  },
-  // Queries 파일: kebab-case.queries.ts
+  }, // Queries 파일: kebab-case.queries.ts
   {
     files: ['src/**/*.queries.ts'],
     plugins: {
@@ -201,8 +197,7 @@ export default [
     rules: {
       'unicorn/filename-case': ['error', { case: 'kebabCase' }],
     },
-  },
-  // 타입 파일: camelCase
+  }, // 타입 파일: camelCase
   {
     files: ['src/**/types/**/*.ts'],
     ignores: ['**/index.ts'],
@@ -212,8 +207,7 @@ export default [
     rules: {
       'unicorn/filename-case': ['error', { case: 'camelCase' }],
     },
-  },
-  // 타입 파일: kebab-case (model/types.ts)
+  }, // 타입 파일: kebab-case (model/types.ts)
   {
     files: ['src/**/model/**/types.ts'],
     plugins: {
@@ -222,8 +216,7 @@ export default [
     rules: {
       'unicorn/filename-case': ['error', { case: 'kebabCase' }],
     },
-  },
-  // 설정 파일: camelCase
+  }, // 설정 파일: camelCase
   {
     files: ['src/**/config/**/*.ts'],
     ignores: ['**/index.ts'],
@@ -233,8 +226,7 @@ export default [
     rules: {
       'unicorn/filename-case': ['error', { case: 'camelCase' }],
     },
-  },
-  // index.ts 파일은 예외 처리
+  }, // index.ts 파일은 예외 처리
   {
     files: ['**/index.{ts,tsx}'],
     plugins: {
@@ -243,8 +235,7 @@ export default [
     rules: {
       'unicorn/filename-case': 'off',
     },
-  },
-  // Next.js App Router 파일들: 소문자 파일명 허용
+  }, // Next.js App Router 파일들: 소문자 파일명 허용
   {
     files: [
       'next.config.{ts,js}',
@@ -258,5 +249,15 @@ export default [
       'unicorn/filename-case': 'off',
       'import/no-default-export': 'off',
     },
+  }, // Storybook 파일들: default export 허용
+  {
+    files: ['**/*.stories.{ts,tsx}'],
+    plugins: {
+      import: importPlugin,
+    },
+    rules: {
+      'import/no-default-export': 'off',
+    },
   },
+  ...storybook.configs['flat/recommended'],
 ];

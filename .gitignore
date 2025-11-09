@@ -57,3 +57,6 @@ yarn-error.log*
 
 # 프로젝트 시작 시 주석 해제
 # .env.*
+
+*storybook.log
+storybook-static

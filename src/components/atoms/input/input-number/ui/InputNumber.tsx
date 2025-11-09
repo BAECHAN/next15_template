@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { Input, type InputProps } from './Input';
-import { useInputNumber } from '@/components/atoms/Input/hooks/useInputNumber';
+import { Input, type InputProps } from '@/components/atoms/input/Input';
+import { useInputNumber } from '@/components/atoms/input/input-number/hooks/useInputNumber';
 
 export interface NumberInputProps extends Omit<InputProps, 'type' | 'onChange' | 'value'> {
   value?: number | string;

@@ -7,11 +7,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from '@/components/atoms/Dialog';
-import { Button } from '@/components/atoms/Button';
+} from '@/components/atoms/dialog/Dialog';
+import { Button } from '@/components/atoms/button/Button';
 import { cn } from '@/lib/utils';
 
-export { useModal } from './useModal';
+export { useModal } from '@/components/elements/modal/modal/hooks/useModal';
 
 interface ModalProps {
   open: boolean;
