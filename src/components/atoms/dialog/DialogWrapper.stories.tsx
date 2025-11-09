@@ -1,50 +1,58 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import { useState } from 'react';
-import { Modal } from '@/components/elements/modal/modal/ui/Modal';
+import { DialogWrapper } from '@/components/atoms/dialog/DialogWrapper';
 import { Button } from '@/components/atoms/button/Button';
 
 const meta = {
-  title: 'Elements/Modal',
-  component: Modal,
+  title: 'Atoms/DialogWrapper',
+  component: DialogWrapper,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Modal>;
+} satisfies Meta<typeof DialogWrapper>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => {
+  args: {
+    open: false,
+    onOpenChange: () => {},
+    title: 'Dialog Title',
+    description: 'This is a dialog description',
+    children: <p>Dialog content goes here.</p>,
+  },
+  render: (args) => {
     const [open, setOpen] = useState(false);
     return (
       <>
-        <Button onClick={() => setOpen(true)}>Open Modal</Button>
-        <Modal
-          open={open}
-          onOpenChange={setOpen}
-          title="Modal Title"
-          description="This is a modal description"
-        >
-          <p>Modal content goes here.</p>
-        </Modal>
+        <Button onClick={() => setOpen(true)}>Open Dialog</Button>
+        <DialogWrapper {...args} open={open} onOpenChange={setOpen}>
+          {args.children}
+        </DialogWrapper>
       </>
     );
   },
 };
 
 export const WithFooter: Story = {
-  render: () => {
+  args: {
+    open: false,
+    onOpenChange: () => {},
+    title: 'Dialog with Footer',
+    description: 'This dialog has a custom footer',
+    children: <p>Dialog content with footer actions.</p>,
+  },
+  render: (args) => {
     const [open, setOpen] = useState(false);
     return (
       <>
-        <Button onClick={() => setOpen(true)}>Open Modal with Footer</Button>
-        <Modal
+        <Button onClick={() => setOpen(true)}>Open Dialog with Footer</Button>
+        <DialogWrapper
+          {...args}
           open={open}
           onOpenChange={setOpen}
-          title="Modal with Footer"
-          description="This modal has a custom footer"
           footer={
             <>
               <Button variant="secondary" onClick={() => setOpen(false)}>
@@ -54,15 +62,23 @@ export const WithFooter: Story = {
             </>
           }
         >
-          <p>Modal content with footer actions.</p>
-        </Modal>
+          {args.children}
+        </DialogWrapper>
       </>
     );
   },
 };
 
 export const DifferentSizes: Story = {
-  render: () => {
+  args: {
+    open: false,
+    onOpenChange: () => {},
+    title: 'Dialog',
+    description: 'This is a dialog',
+    size: 'md',
+    children: <p>Dialog content</p>,
+  },
+  render: (args) => {
     const [open, setOpen] = useState(false);
     const [size, setSize] = useState<'sm' | 'md' | 'lg' | 'xl' | 'full'>('md');
     return (
@@ -101,15 +117,16 @@ export const DifferentSizes: Story = {
             Extra Large
           </Button>
         </div>
-        <Modal
+        <DialogWrapper
+          {...args}
           open={open}
           onOpenChange={setOpen}
-          title={`${size.toUpperCase()} Modal`}
-          description={`This is a ${size} sized modal`}
+          title={`${size.toUpperCase()} Dialog`}
+          description={`This is a ${size} sized dialog`}
           size={size}
         >
-          <p>Modal content for {size} size.</p>
-        </Modal>
+          <p>Dialog content for {size} size.</p>
+        </DialogWrapper>
       </>
     );
   },

@@ -3,23 +3,23 @@
 import { useState, useCallback } from 'react';
 
 /**
- * Modal 상태를 관리하는 커스텀 훅
+ * Dialog 상태를 관리하는 커스텀 훅
  *
  * @example
  * ```tsx
- * const { isOpen, open, close, toggle } = useModal();
+ * const { isOpen, open, close, toggle } = useDialog();
  *
  * return (
  *   <>
- *     <Button onClick={open}>모달 열기</Button>
- *     <Modal open={isOpen} onOpenChange={toggle}>
+ *     <Button onClick={open}>다이얼로그 열기</Button>
+ *     <Dialog open={isOpen} onOpenChange={toggle}>
  *       ...
- *     </Modal>
+ *     </Dialog>
  *   </>
  * );
  * ```
  */
-export function useModal(initialState = false) {
+export function useDialog(initialState = false) {
   const [isOpen, setIsOpen] = useState(initialState);
 
   const open = useCallback(() => {
@@ -41,3 +41,4 @@ export function useModal(initialState = false) {
     toggle,
   };
 }
+

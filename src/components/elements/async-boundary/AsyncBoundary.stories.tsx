@@ -46,7 +46,7 @@ export const WithError: Story = {
   render: () => (
     <AsyncBoundary
       errorFallback={({ error, resetErrorBoundary }) => (
-        <ErrorDisplay message={error.message}>
+        <ErrorDisplay message={error instanceof Error ? error.message : String(error)}>
           <Button onClick={resetErrorBoundary}>Retry</Button>
         </ErrorDisplay>
       )}

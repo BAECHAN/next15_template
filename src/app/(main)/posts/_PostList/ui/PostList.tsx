@@ -1,12 +1,13 @@
 'use client';
 
+import Link from 'next/link';
 import { Button } from '@/components/atoms/button/Button';
 import { usePosts } from '@/app/(main)/posts/_common/posts.queries';
 import { usePostList } from '@/app/(main)/posts/_PostList/hooks/usePostList';
 import { TEXTS } from '@/lib/constants/texts';
 
 export function PostList() {
-  const { data: posts } = usePosts();
+  const { data: posts } = usePosts(true); // Suspense 모드 사용
   const { handleDelete, deletingId, isDeleting } = usePostList();
 
   if (!posts || posts.length === 0) {
@@ -37,9 +38,10 @@ export function PostList() {
   return (
     <div className="space-y-4">
       {posts.map((post, index) => (
-        <div
+        <Link
           key={post.id}
-          className="group p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200/50 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-200/50"
+          href={`/posts/${post.id}`}
+          className="group block p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200/50 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-blue-200/50"
           style={{
             animationDelay: `${index * 50}ms`,
           }}
@@ -52,7 +54,7 @@ export function PostList() {
                   <h3 className="text-lg font-bold text-gray-900 mb-2 break-words group-hover:text-blue-700 transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-gray-600 mt-2 break-words whitespace-pre-wrap leading-relaxed">
+                  <p className="text-gray-600 mt-2 break-words whitespace-pre-wrap leading-relaxed line-clamp-3">
                     {post.body}
                   </p>
                   <div className="flex items-center gap-2 mt-4">
@@ -80,7 +82,11 @@ export function PostList() {
               <Button
                 variant="danger"
                 size="sm"
-                onClick={() => handleDelete(post.id)}
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleDelete(post.id);
+                }}
                 disabled={deletingId === post.id || isDeleting}
                 className="shadow-sm hover:shadow-md transition-all duration-200"
               >
@@ -88,7 +94,7 @@ export function PostList() {
               </Button>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

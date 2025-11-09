@@ -1,6 +1,6 @@
 'use client';
 
-import { useSuspenseQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useSuspenseQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { POSTS_API, type CreatePostDTO, type UpdatePostDTO } from './posts.api';
 
 /**
@@ -17,20 +17,36 @@ export const POSTS_QUERY_KEYS = {
 } as const;
 
 /**
- * 모든 게시글 조회 (Suspense 지원)
+ * 모든 게시글 조회
+ * @param useSuspense - Suspense 모드 사용 여부 (기본값: false)
  */
-export function usePosts() {
-  return useSuspenseQuery({
+export function usePosts(useSuspense = false) {
+  if (useSuspense) {
+    return useSuspenseQuery({
+      queryKey: POSTS_QUERY_KEYS.listAll(),
+      queryFn: () => POSTS_API.getAll(),
+    });
+  }
+
+  return useQuery({
     queryKey: POSTS_QUERY_KEYS.listAll(),
     queryFn: () => POSTS_API.getAll(),
   });
 }
 
 /**
- * 특정 게시글 조회 (Suspense 지원)
+ * 특정 게시글 조회
+ * @param useSuspense - Suspense 모드 사용 여부 (기본값: true)
  */
-export function usePost(id: number | string) {
-  return useSuspenseQuery({
+export function usePost(id: number | string, useSuspense = true) {
+  if (useSuspense) {
+    return useSuspenseQuery({
+      queryKey: POSTS_QUERY_KEYS.detail(id),
+      queryFn: () => POSTS_API.getById(id),
+    });
+  }
+
+  return useQuery({
     queryKey: POSTS_QUERY_KEYS.detail(id),
     queryFn: () => POSTS_API.getById(id),
   });

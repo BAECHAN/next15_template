@@ -152,7 +152,7 @@ export default [
   }, // 컴포넌트 파일: PascalCase
   {
     files: ['src/**/*.tsx'],
-    ignores: ['src/main.tsx', 'src/App.tsx', '**/index.tsx', '**/FSD*.tsx', '**/UI*.tsx'],
+    ignores: ['src/main.tsx', 'src/App.tsx', '**/index.tsx', '**/UI*.tsx'],
     plugins: {
       unicorn: unicornPlugin,
     },
@@ -162,7 +162,7 @@ export default [
   }, // 스타일 파일: PascalCase.styles.ts
   {
     files: ['src/**/*.styles.ts'],
-    ignores: ['**/FSD*.styles.ts', '**/UI*.styles.ts'],
+    ignores: ['**/UI*.styles.ts'],
     plugins: {
       unicorn: unicornPlugin,
     },

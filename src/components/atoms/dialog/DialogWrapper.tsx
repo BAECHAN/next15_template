@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import {
-  Dialog,
+  Dialog as DialogPrimitive,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -11,9 +11,10 @@ import {
 import { Button } from '@/components/atoms/button/Button';
 import { cn } from '@/lib/utils';
 
-export { useModal } from '@/components/elements/modal/modal/hooks/useModal';
+export { useDialog } from '@/components/atoms/dialog/hooks/useDialog';
+export { useDialogStack } from '@/components/atoms/dialog/hooks/useDialogStack';
 
-interface ModalProps {
+interface DialogWrapperProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   title: string;
@@ -33,7 +34,7 @@ const sizeClasses = {
   full: 'max-w-full',
 };
 
-export function Modal({
+export function DialogWrapper({
   open,
   onOpenChange,
   title,
@@ -43,9 +44,9 @@ export function Modal({
   className,
   contentClassName,
   size = 'md',
-}: ModalProps) {
+}: DialogWrapperProps) {
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <DialogPrimitive open={open} onOpenChange={onOpenChange}>
       <DialogContent className={cn('max-w-lg', sizeClasses[size], contentClassName)}>
         <DialogHeader className={className}>
           <DialogTitle>{title}</DialogTitle>
@@ -54,11 +55,11 @@ export function Modal({
         <div className="py-4">{children}</div>
         {footer && <div className="flex justify-end gap-2 pt-4 border-t">{footer}</div>}
       </DialogContent>
-    </Dialog>
+    </DialogPrimitive>
   );
 }
 
-interface ConfirmModalProps {
+interface ConfirmDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   title: string;
@@ -70,7 +71,7 @@ interface ConfirmModalProps {
   variant?: 'default' | 'danger';
 }
 
-export function ConfirmModal({
+export function ConfirmDialog({
   open,
   onOpenChange,
   title,
@@ -80,7 +81,7 @@ export function ConfirmModal({
   onConfirm,
   onCancel,
   variant = 'default',
-}: ConfirmModalProps) {
+}: ConfirmDialogProps) {
   const handleConfirm = () => {
     onConfirm();
     onOpenChange(false);
@@ -92,7 +93,7 @@ export function ConfirmModal({
   };
 
   return (
-    <Modal
+    <DialogWrapper
       open={open}
       onOpenChange={onOpenChange}
       title={title}
@@ -110,6 +111,7 @@ export function ConfirmModal({
       }
     >
       <></>
-    </Modal>
+    </DialogWrapper>
   );
 }
+
