@@ -1,0 +1,32 @@
+# 줄바꿈 문자를 LF로 통일 (Windows/Mac/Linux 호환성)
+* text=auto eol=lf
+
+# 텍스트 파일 명시적 설정
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.txt text eol=lf
+*.sh text eol=lf
+
+# 바이너리 파일
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.svg binary
+
+# 실행 파일 권한 유지 (Unix 계열)
+*.sh text eol=lf
