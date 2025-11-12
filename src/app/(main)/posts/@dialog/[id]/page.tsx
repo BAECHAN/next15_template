@@ -1,4 +1,4 @@
-import { PostDetailDialog } from '@/app/(main)/posts/_PostList/ui/PostDetailDialog';
+import { PostDetailDialog } from '@/app/(main)/posts/_common/ui/PostDetailDialog';
 
 interface PostDetailDialogPageProps {
   params: Promise<{ id: string }>;

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useDeletePost } from '@/app/(main)/posts/_common/posts.queries';
+import { useDeletePost } from '@/app/(main)/posts/_common/api/posts.queries';
 
 /**
  * PostList 컴포넌트 전용 hook

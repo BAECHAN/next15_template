@@ -12,8 +12,8 @@ import {
 } from '@/components/atoms/dialog/Dialog';
 import { Button } from '@/components/atoms/button/Button';
 import { useDialogStack } from '@/components/atoms/dialog/hooks/useDialogStack';
-import { usePostList } from '@/app/(main)/posts/_PostList/hooks/usePostList';
-import { usePost } from '@/app/(main)/posts/_common/posts.queries';
+import { usePostList } from '@/app/(main)/posts/_features/post-list/hooks/usePostList';
+import { usePost } from '@/app/(main)/posts/_common/api/posts.queries';
 import { TEXTS } from '@/lib/constants/texts';
 
 interface PostDetailDialogProps {

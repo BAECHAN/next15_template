@@ -8,7 +8,7 @@ import { InputNumber } from '@/components/atoms/input/input-number/ui/InputNumbe
 import { Textarea } from '@/components/atoms/textarea/Textarea';
 import { Label } from '@/components/atoms/label/Label';
 import { FormGroup } from '@/components/elements/form-group/FormGroup';
-import { useCreatePostForm } from '@/app/(main)/posts/_CreatePostForm/hooks/useCreatePostForm';
+import { useCreatePostForm } from '@/app/(main)/posts/_features/create-post/hooks/useCreatePostForm';
 import { TEXTS } from '@/lib/constants/texts';
 
 export function CreatePostForm() {

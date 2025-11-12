@@ -1,5 +1,9 @@
 import { apiGet, apiPost, apiPut, apiPatch, apiDelete } from '@/lib/api/client';
-import type { PostResponse, CreatePostDTO, UpdatePostDTO } from './posts.schema';
+import type {
+  PostResponse,
+  CreatePostDTO,
+  UpdatePostDTO,
+} from '@/app/(main)/posts/_common/model/posts.schema';
 
 /**
  * Posts API 엔드포인트

@@ -3,11 +3,11 @@
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useCreatePost } from '@/app/(main)/posts/_common/posts.queries';
+import { useCreatePost } from '@/app/(main)/posts/_common/api/posts.queries';
 import {
   createPostSchema,
   type CreatePostFormData,
-} from '@/app/(main)/posts/_CreatePostForm/model/createPostForm.schema';
+} from '@/app/(main)/posts/_features/create-post/model/createPostForm.schema';
 
 /**
  * CreatePostForm 컴포넌트 전용 hook

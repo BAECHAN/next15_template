@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/atoms/button/Button';
-import { usePosts } from '@/app/(main)/posts/_common/posts.queries';
-import { usePostList } from '@/app/(main)/posts/_PostList/hooks/usePostList';
+import { usePosts } from '@/app/(main)/posts/_common/api/posts.queries';
+import { usePostList } from '@/app/(main)/posts/_features/post-list/hooks/usePostList';
 import { TEXTS } from '@/lib/constants/texts';
 
 export function PostList() {

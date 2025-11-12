@@ -27,5 +27,9 @@
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "material-icon-theme.folders.associations": {
+    "(main)": "controller",
+    "_features": "Content"
   }
 }

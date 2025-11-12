@@ -1,4 +1,4 @@
-import { CreatePostForm } from '@/app/(main)/posts/_CreatePostForm/ui/CreatePostForm';
+import { CreatePostForm } from '@/app/(main)/posts/_features/create-post/ui/CreatePostForm';
 import { cn } from '@/lib/utils';
 
 export default function CreatePostPage() {

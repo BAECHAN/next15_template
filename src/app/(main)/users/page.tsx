@@ -1,5 +1,5 @@
 import { AsyncBoundary } from '@/components/elements/async-boundary/AsyncBoundary';
-import { UserList } from './_UserList/ui/UserList';
+import { UserList } from '@/app/(main)/users/_features/user-list/ui/UserList';
 
 export default function UserListPage() {
   return (

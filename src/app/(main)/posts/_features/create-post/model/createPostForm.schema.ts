@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { postSchema } from '@/app/(main)/posts/_common/posts.schema';
+import { postSchema } from '@/app/(main)/posts/_common/model/posts.schema';
 import { TEXTS } from '@/lib/constants/texts';
 
 /**
